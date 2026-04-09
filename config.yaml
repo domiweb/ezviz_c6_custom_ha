@@ -1,0 +1,30 @@
+name: EZVIZ PTZ
+version: "0.1.0"
+slug: ezviz_ptz
+description: Lokale PTZ-Steuerung für EZVIZ/Hikvision über HCNetSDK
+url: https://example.local/ezviz_ptz
+arch:
+  - amd64
+  - aarch64
+startup: services
+boot: auto
+init: false
+host_network: true
+ports:
+  8765/tcp: 8765
+options:
+  camera_ip: "192.168.178.142"
+  camera_port: 8000
+  username: "admin"
+  password: ""
+  channel: 1
+  speed: 7
+  duration: 0.15
+schema:
+  camera_ip: str
+  camera_port: int
+  username: str
+  password: password
+  channel: int
+  speed: int
+  duration: float
