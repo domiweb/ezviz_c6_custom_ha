@@ -1,14 +1,14 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+ARG BUILD_ARCH
+FROM ghcr.io/home-assistant/${BUILD_ARCH}-base-debian:latest
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
-    py3-flask \
-    bash \
-    libc6-compat \
-    libstdc++ \
-    libgcc \
-    libuuid
+    python3-flask \
+    libuuid1 \
+    libstdc++6 \
+    libgcc-s1 \
+    ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
