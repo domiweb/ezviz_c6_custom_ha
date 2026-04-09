@@ -10,7 +10,7 @@ export CAMERA_SPEED="$(bashio::config 'speed')"
 export CAMERA_DURATION="$(bashio::config 'duration')"
 
 export SDK_ROOT="/app/sdk"
-export LD_LIBRARY_PATH="/app/sdk:/app/sdk/HCNetSDKCom:${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="/app/sdk:/app/sdk/HCNetSDKCom:${LD_LIBRARY_PATH:-}"
 
 echo "Starting EZVIZ PTZ service..."
 python3 /app/ptz_service.py
